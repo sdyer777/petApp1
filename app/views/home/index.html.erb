@@ -1,4 +1,37 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-HOWDY HOWDY HOWDY
-BLABBO!
+<h1>Harvard University</h1>
+<h1>Rex Fido School</h1>
+<h3>of Canine and Atmospheric Studies</h3>
+
+<p>
+<hr>
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Breed</th>
+      <th>Location</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parsed['pets'].each do |pet| %>
+      <tr>
+        <td><%= pet['id'] %></td>
+        <td><%= pet['name'] %></td>
+        <td><%= pet['type'] %></td>
+        <td><%= pet['breed'] %></td>
+        <td><%= pet['location'] %></td>
+        <td><%= pet['latitude'] %></td>
+        <td><%= pet['longitude'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
