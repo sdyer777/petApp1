@@ -25,11 +25,12 @@
 <!-- Pet and Weather Details -->
 <h1>Should <%= @pet['name'] %> Take an Umbrella?</h1>
 
-Yes, <%= @pet['name'] %> should play it safe and take an umbrella today.<br><br>
-The chance of precipitation in <%= @pet['location']%> is moderate - 47%.  <br>
+<%= @needsUmbrella %>, <%= @pet['name'] %> <%= @needsMessage %><br><br>
+The chance of precipitation in <%= @pet['location']%> is a <%= @chanceOfPrecip %> <%= @precipProbability %>%, and it is <%= @weatherData['currently']['summary'] %>.  <br>
 
 <br>
 <button type="button" class="btnWithBackground" onclick="window.location = '/';">Back</button>
+
 </div>
 
 </body>
