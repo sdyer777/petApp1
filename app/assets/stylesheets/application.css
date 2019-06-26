@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+table.header {
+    font-family: helvetica; 
+}
+
+table.header td {
+	padding: 8px;
+}
+
+table.list {
+    font-family: helvetica; 
+}
+
+table.list th {
+	text-align: left;
+}
+
+table.list td {
+    padding: 5px;
+    padding-right: 15px;
+}
+
+button {
+    font-size:16px;
+}
+
