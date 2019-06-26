@@ -19,7 +19,7 @@ table.header {
 }
 
 table.header td {
-	padding: 8px;
+    padding: 8px;    
 }
 
 table.list {
@@ -28,14 +28,15 @@ table.list {
 
 table.list th {
 	text-align: left;
+    padding-bottom: 8px;
 }
 
 table.list td {
-    padding: 5px;
     padding-right: 35px;
 }
 
-button {
+/* Buttons */
+button.btnWithBackground {
     font-size:16px;
     background-color: gray;
     color: white;
@@ -45,15 +46,39 @@ button {
     margin-bottom:10px;
     opacity: 0.8;
 }
-  /* Add some hover effects to buttons */
+
+button.btnNoBackground {
+    font-size:16px;
+    background-color: white;
+    color: #666666;
+    border: none;
+    cursor: pointer;
+}
+
+/* Add some hover effects to buttons */
  button:hover {
     opacity: 1;
   }
 
-body {font-family: Arial, Helvetica, sans-serif;}
+  button.btnNoBackground:hover {
+    background: darkgray;
+    color: white;
+  }
+
+  body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
-/* The popup form - hidden by default */
+/* Centered popup form, for the weather display - hidden by default */
+.form-popup-center {
+    display: none;
+    position: fixed;
+    top: 195px;
+    left: 30%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+/* The New Pet popup form - hidden by default */
 .form-popup {
     display: none;
     position: fixed;

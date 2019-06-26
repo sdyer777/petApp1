@@ -6,6 +6,8 @@
 </head>
  
 <body>
+
+<!-- Page header -->
 <table class="header">
     <tr>
         <td>
@@ -18,9 +20,9 @@
         <td>
     <tr>
 </table>
-
 <hr>
 
+<!-- Pet list -->
 <div id="petList">
 <table class="list">
   <thead>
@@ -46,16 +48,31 @@
         <td><%= pet['location'] %></td>
         <td><%= pet['latitude'] %></td>
         <td><%= pet['longitude'] %></td>
-        <td><a href=# onclick="alert('blabo!!');">Check Weather</a><td>
+        <td><button type="button" class="btnNoBackground" onclick="openTakeUmbrellaForm()">Check Weather</button><td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<button type="button" class="bigger" onclick="openForm()">Add</button>
+<button type="button" class="btnWithBackground" onclick="openForm()">Add</button>
 </div>
 
+<!-- Check Weather form -->
+<div class="form-popup-center" id="takeUmbrellaForm">
+  <form class="form-container">
+    <h1>Should Fifi Take an Umbrella?</h1>
+
+    Yes, Fifi should play it safe and take an umbrella.<br><br>
+    The chance of precipitation in Paris is moderate - 47%.  <br>
+    <br>
+    <br>
+    <button type="button" class="btn cancel" onclick="closeTakeUmbrellaForm()">Close</button>
+  </form>
+</div>
+
+
+<!-- New Pet form -->
 <div class="form-popup" id="myForm">
   <form onsubmit="return saveForm()" class="form-container">
     <h1>New Pet </h1>
@@ -93,7 +110,19 @@
   </form>
 </div>
 
+<!-- Javascript -->
 <script>
+function openTakeUmbrellaForm() {
+  document.getElementById("petList").style.display = "none";
+  document.getElementById("takeUmbrellaForm").style.display = "block";
+}
+
+function closeTakeUmbrellaForm() {
+  document.getElementById("takeUmbrellaForm").style.display = "none";
+  document.getElementById("petList").style.display = "block";
+}
+
+
 function openForm() {
   document.getElementById("petList").style.display = "none";
   document.getElementById("myForm").style.display = "block";
