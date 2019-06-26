@@ -21,17 +21,18 @@
 
 <hr>
 
-
+<div id="petList">
 <table class="list">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Breed</th>
-      <th>Location</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Breed</th>
+        <th>Location</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Take Umbrella?</th>
     </tr>
   </thead>
 
@@ -45,13 +46,69 @@
         <td><%= pet['location'] %></td>
         <td><%= pet['latitude'] %></td>
         <td><%= pet['longitude'] %></td>
+        <td><a href=# onclick="alert('blabo!!');">Check Weather</a><td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<button class="bigger">Add</button>
+<button type="button" class="bigger" onclick="openForm()">Add</button>
+</div>
+
+<div class="form-popup" id="myForm">
+  <form onsubmit="return saveForm()" class="form-container">
+    <h1>New Pet </h1>
+
+    <table>
+        <tr>
+            <td>
+    <label for="email"><b>Name</b></label>    
+    <input type="text" placeholder="Enter pet name" name="name" required>
+
+    <label for="psw"><b>Type</b></label>
+    <input type="text" placeholder="Enter pet type" name="type" required>
+
+    <label for="psw"><b>Breed</b></label>
+    <input type="text" placeholder="Enter pet breed" name="breed" required>
+
+            </td>
+            <td rowspan=3>
+    <span style="padding-left:15px;">&nbsp;</span>
+            </td>
+            <td>
+    <label for="psw"><b>Location</b></label>
+    <input type="text" placeholder="Enter pet location" name="location" required>
+
+    <label for="psw"><b>Latitude</b></label>
+    <input type="text" placeholder="Enter location latitude" name="latitude" required>
+
+    <label for="psw"><b>Longitude</b></label>
+    <input type="text" placeholder="Enter location longitude" name="longitude" required>
+</td>
+<tr>
+</table>
+    <button type="submit" class="btn">Save</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("petList").style.display = "none";
+  document.getElementById("myForm").style.display = "block";
+}
+
+function saveForm() {
+  alert("Saved");
+  location.reload();
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  document.getElementById("petList").style.display = "block";
+}
+</script>
 
 </body>
 
