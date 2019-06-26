@@ -58,20 +58,6 @@
 <button type="button" class="btnWithBackground" onclick="openForm()">Add</button>
 </div>
 
-<!-- Check Weather form -->
-<div class="form-popup-center" id="takeUmbrellaForm">
-  <form class="form-container">
-    <h1>Should Fifi Take an Umbrella?</h1>
-
-    Yes, Fifi should play it safe and take an umbrella.<br><br>
-    The chance of precipitation in Paris is moderate - 47%.  <br>
-    <br>
-    <br>
-    <button type="button" class="btn cancel" onclick="closeTakeUmbrellaForm()">Close</button>
-  </form>
-</div>
-
-
 <!-- New Pet form -->
 <div class="form-popup" id="myForm">
   <form onsubmit="return saveForm()" class="form-container">
@@ -117,12 +103,6 @@ function openTakeUmbrellaForm(id) {
     window.open(url, '_self');
 }
 
-function closeTakeUmbrellaForm() {
-  document.getElementById("takeUmbrellaForm").style.display = "none";
-  document.getElementById("petList").style.display = "block";
-}
-
-
 function openForm() {
   document.getElementById("petList").style.display = "none";
   document.getElementById("myForm").style.display = "block";
@@ -136,13 +116,6 @@ function saveForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("petList").style.display = "block";
-}
-
-function Get(yourUrl) {
-    var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open("GET",yourUrl,false);
-    Httpreq.send(null);
-    return Httpreq.responseText;          
 }
 
 </script>
