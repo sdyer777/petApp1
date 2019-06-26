@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   
   # GET /
+  # GET /pet/1
   # Returns all pets
   def index
     url = 'https://petapi-1.herokuapp.com/'
@@ -14,6 +15,7 @@ class HomeController < ApplicationController
   def show
     url = 'https://petapi-1.herokuapp.com/pets/'
     @response = RestClient.get(url)
+    @parsed = JSON.parse(@response)
   end
 
 end

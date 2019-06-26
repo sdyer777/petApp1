@@ -48,7 +48,7 @@
         <td><%= pet['location'] %></td>
         <td><%= pet['latitude'] %></td>
         <td><%= pet['longitude'] %></td>
-        <td><button type="button" class="btnNoBackground" onclick="openTakeUmbrellaForm()">Check Weather</button><td>
+        <td><button type="button" class="btnNoBackground" onclick="openTakeUmbrellaForm(<%= pet['id'] %>)">Check Weather</button><td>
       </tr>
     <% end %>
   </tbody>
@@ -112,9 +112,9 @@
 
 <!-- Javascript -->
 <script>
-function openTakeUmbrellaForm() {
-  document.getElementById("petList").style.display = "none";
-  document.getElementById("takeUmbrellaForm").style.display = "block";
+function openTakeUmbrellaForm(id) {
+    url = '../details/index/' + id
+    window.open(url, '_self');
 }
 
 function closeTakeUmbrellaForm() {
@@ -137,6 +137,14 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("petList").style.display = "block";
 }
+
+function Get(yourUrl) {
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+}
+
 </script>
 
 </body>
