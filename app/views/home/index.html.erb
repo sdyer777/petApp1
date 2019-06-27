@@ -133,7 +133,7 @@ function validateNewPet() {
     {
         error += "Please enter a numeric Longitude\n"
     }
-    else if(val < -90 || val > 90)
+    else if(val < -180 || val > 180)
     {
         error += "Please enter Longitude between -180 and 180\n"
     }
