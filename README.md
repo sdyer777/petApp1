@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mentor Collective - Pet Weather
 
-Things you may want to cover:
+This application lists pets and allows the user to look up weather information for each pet's location, including advice on bringing an umbrella.
 
-* Ruby version
+Features:
+- pet list
+- add a pet
+- Check Weather link
 
-* System dependencies
+The back end is the Pet API, which services requests from this end to store and retrieve pet data.
+This app uses the DarkSky public API to retrieve weather information.  The "Daily" forecast is used to determine the chance of precipitation.
 
-* Configuration
+This app is hosted in Heroku at:  https://petapp1mc.herokuapp.com
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Tech:
+- It is written in Ruby, with Rails used to create home and details controllers and views.
+- Rbenv manages the ruby versions - this app uses Ruby 2.4.1.
+- RestClient is used to call the back end to send/request data.
