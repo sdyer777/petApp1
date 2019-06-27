@@ -37,7 +37,7 @@ class DetailsController < ApplicationController
     @chanceOfPrecip = 'low'
     if @precipProbability > 70
       @chanceOfPrecip = 'high'
-    elsif @precipProbability > 50
+    elsif @precipProbability > 40
       @chanceOfPrecip = 'moderate'
     end
       

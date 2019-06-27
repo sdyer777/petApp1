@@ -67,20 +67,20 @@
         <tr>
             <td>
                 <label><b>Name</b></label>    
-                <input type="text" placeholder="Enter pet name" name="name" required>
+                <input type="text" placeholder="Enter pet name" id="name" name="name" required>
 
                 <label><b>Type</b></label>
-                <input type="text" placeholder="Enter pet type" name="type" required>
+                <input type="text" placeholder="Enter pet type" id="type" name="type" required>
 
                 <label><b>Breed</b></label>
-                <input type="text" placeholder="Enter pet breed" name="breed" required>
+                <input type="text" placeholder="Enter pet breed" id="breed" name="breed" required>
             </td>
             <td rowspan=3>
                 <span style="padding-left:15px;">&nbsp;</span>
             </td>
             <td>
                 <label><b>Location</b></label>
-                <input type="text" placeholder="Enter pet location" name="location" required>
+                <input type="text" placeholder="Enter pet location" id="location" name="location" required>
 
                 <label><b>Latitude</b></label>
                 <input type="text" placeholder="Enter latitude between -90 and 90" id="latitude" name="latitude" required>
@@ -115,6 +115,28 @@ function closeForm() {
 
 function validateNewPet() {
     var error = ''
+
+    // Validate that all text is proper length
+    val = document.getElementById("name").value
+    if(val.length > 50)
+    {
+        error += "Please enter 50 characters or less for name\n"
+    }
+    val = document.getElementById("type").value
+    if(val.length > 50)
+    {
+        error += "Please enter 50 characters or less for type\n"
+    }
+    val = document.getElementById("breed").value
+    if(val.length > 50)
+    {
+        error += "Please enter 50 characters or less for breed\n"
+    }
+    val = document.getElementById("location").value
+    if(val.length > 50)
+    {
+        error += "Please enter 50 characters or less for location\n"
+    }
 
     // Validate latitude is numeric and in range
     val = document.getElementById("latitude").value
