@@ -60,37 +60,37 @@
 
 <!-- New Pet form -->
 <div class="form-popup" id="myForm">
-  <form onsubmit="return saveForm()" class="form-container">
+    <form id="newPetForm" class="form-container" method='post' action='home/save' onsubmit="return validateNewPet()">  
     <h1>New Pet </h1>
 
     <table>
         <tr>
             <td>
-    <label for="email"><b>Name</b></label>    
-    <input type="text" placeholder="Enter pet name" name="name" required>
+                <label><b>Name</b></label>    
+                <input type="text" placeholder="Enter pet name" name="name" required>
 
-    <label for="psw"><b>Type</b></label>
-    <input type="text" placeholder="Enter pet type" name="type" required>
+                <label><b>Type</b></label>
+                <input type="text" placeholder="Enter pet type" name="type" required>
 
-    <label for="psw"><b>Breed</b></label>
-    <input type="text" placeholder="Enter pet breed" name="breed" required>
-
+                <label><b>Breed</b></label>
+                <input type="text" placeholder="Enter pet breed" name="breed" required>
             </td>
             <td rowspan=3>
-    <span style="padding-left:15px;">&nbsp;</span>
+                <span style="padding-left:15px;">&nbsp;</span>
             </td>
             <td>
-    <label for="psw"><b>Location</b></label>
-    <input type="text" placeholder="Enter pet location" name="location" required>
+                <label><b>Location</b></label>
+                <input type="text" placeholder="Enter pet location" name="location" required>
 
-    <label for="psw"><b>Latitude</b></label>
-    <input type="text" placeholder="Enter location latitude" name="latitude" required>
+                <label><b>Latitude</b></label>
+                <input type="text" placeholder="Enter latitude between -90 and 90" id="latitude" name="latitude" required>
 
-    <label for="psw"><b>Longitude</b></label>
-    <input type="text" placeholder="Enter location longitude" name="longitude" required>
-</td>
-<tr>
-</table>
+                <label><b>Longitude</b></label>
+                <input type="text" placeholder="Enter longitude between -180 and 180" id="longitude" name="longitude" required>
+            </td>
+        <tr>
+    </table>
+
     <button type="submit" class="btn">Save</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
@@ -108,14 +108,42 @@ function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
 
-function saveForm() {
-  alert("Saved");
-  location.reload();
-}
-
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("petList").style.display = "block";
+}
+
+function validateNewPet() {
+    var error = ''
+
+    // Validate latitude is numeric and in range
+    val = document.getElementById("latitude").value
+    if(isNaN(val))
+    {
+        error += "Please enter a numeric Latitude\n"
+    }
+    else if(val < -90 || val > 90)
+    {
+        error += "Please enter Latitude between -90 and 90\n"
+    }
+
+    // Validate longitude is numeric and in range
+    val = document.getElementById("longitude").value
+    if(isNaN(val))
+    {
+        error += "Please enter a numeric Longitude\n"
+    }
+    else if(val < -90 || val > 90)
+    {
+        error += "Please enter Longitude between -180 and 180\n"
+    }
+
+    // Display errors and return false, leaving the user on the form
+    if(error != '')
+    {
+        alert(error)
+        return false;
+    }
 }
 
 </script>
